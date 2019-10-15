@@ -10,7 +10,8 @@ const withAraraFetcher = (
   Component,
   path,
   reduxDataKey,
-  fetchParamNames = []
+  fetchParamNames = [],
+  reduxRoot = 'pages'
 ) => {
   class AraraFetcher extends React.Component {
     constructor(props) {
@@ -108,7 +109,8 @@ const withAraraFetcher = (
 
   return connect(
     state => {
-      if (!state.pages[reduxDataKey]) {
+      const curState = reduxRoot ? state[reduxRoot] : state;
+      if (!curState[reduxDataKey]) {
         return {
           isReady: false,
           error: false,
@@ -116,9 +118,9 @@ const withAraraFetcher = (
         };
       }
       return {
-        isReady: state.pages[reduxDataKey].isReady,
-        error: state.pages[reduxDataKey].error,
-        data: state.pages[reduxDataKey].data,
+        isReady: curState[reduxDataKey].isReady,
+        error: curState[reduxDataKey].error,
+        data: curState[reduxDataKey].data,
       };
     },
 

@@ -12,6 +12,7 @@ const withComplexAraraFetcher = (
   reduxDataKeys,
   forwardPropNames,
   fetchParamNames,
+  reduxRoot = 'pages'
 ) => {
   if (
     pathes.length !== reduxDataKeys.length ||
@@ -119,9 +120,10 @@ const withComplexAraraFetcher = (
 
   return connect(
     state => {
+      const curState = reduxRoot ? state[reduxRoot] : state;
       const defaultValue = { isReady: true, error: false };
       const beforeReduce = reduxDataKeys.map(key => {
-        if (!state.pages[key]) {
+        if (!curState[key]) {
           return {
             isReady: false,
             error: false,
@@ -130,9 +132,9 @@ const withComplexAraraFetcher = (
         }
 
         return {
-          isReady: state.pages[key].isReady,
-          error: state.pages[key].error,
-          data: state.pages[key].data,
+          isReady: curState[key].isReady,
+          error: curState[key].error,
+          data: curState[key].data,
         };
       });
 
