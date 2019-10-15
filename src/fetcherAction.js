@@ -31,7 +31,7 @@ function araraFetch(path, key, params) {
     const paramsQuery = paramKeys.length === 0 ? '' :
       `?${paramKeys.map(key => `${key}=${params[key]}`).join('&')}`;
 
-    const requestPath = `http://localhost:2900${path}${paramsQuery}`;
+    const requestPath = `${path}${paramsQuery}`;
     return fetch(requestPath)
       .then(response => response.json())
       .then(json => dispatch(fetchSuccess(key, json)))

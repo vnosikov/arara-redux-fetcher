@@ -5,10 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "cross-fetch": "^3.0.4",
-    "ramda": "^0.26.1",
-    "react-dom": "^16.10.2",
-    "redux": "^4.0.4",
-    "webpack": "^2.6.1"
+    "ramda": "^0.26.1"
   },
   "scripts": {
     "start": "webpack --watch",
@@ -25,6 +22,9 @@
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
     "react": "^16.10.2",
-    "react-redux": "5.1.2"
+    "react-redux": "5.1.2",
+    "react-dom": "^16.10.2",
+    "redux": "^4.0.4",
+    "webpack": "^2.6.1"
   }
 }
