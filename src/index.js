@@ -8,14 +8,14 @@ const withAraraFetcher = (
   path,
   reduxDataKey,
   fetchParamNames = [],
-  reduxRoot = 'pages',
+  options = {},
 ) => withComplexAraraFetcher(
   Component,
   [path],
   [reduxDataKey],
   ['data'],
   [fetchParamNames],
-  reduxRoot,
+  options,
 );
 
 export {

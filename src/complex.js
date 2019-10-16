@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { equals, uniq, flatten } from 'ramda';
+import {
+  equals, uniq, flatten, mapObjIndexed,
+} from 'ramda';
 
 import araraFetch from './fetcherAction';
 import Loading from './indicators/Loading';
@@ -14,8 +16,21 @@ const withComplexAraraFetcher = (
   reduxDataKeys,
   forwardPropNames,
   fetchParamNames,
-  reduxRoot = 'pages',
+  options = {},
 ) => {
+  const defaultOptions = {
+    reduxRoot: null,
+    LoadingComponent: <Loading />,
+    ErrorComponent: <Error />,
+  };
+
+  const {
+    reduxRoot, LoadingComponent, ErrorComponent,
+  } = mapObjIndexed(
+    (value, key) => (options.hasOwnProperty(key) ? options[key] : value),
+    defaultOptions,
+  );
+
   if (
     pathes.length !== reduxDataKeys.length ||
     reduxDataKeys.length !== forwardPropNames.length ||
@@ -100,11 +115,11 @@ const withComplexAraraFetcher = (
       const emptyData = Object.values(data).some(d => d === null);
 
       if (showIndicator) {
-        return <Loading />;
+        return LoadingComponent;
       }
 
       if (error) {
-        return <Error />;
+        return ErrorComponent;
       }
 
       if (emptyData) {
