@@ -97,12 +97,18 @@ const withComplexAraraFetcher = (
       const { data, error, ...otherProps } = this.props;
       const { showIndicator } = this.state;
 
+      const emptyData = Object.values(data).some(d => d === null);
+
       if (showIndicator) {
         return <Loading />;
       }
 
       if (error) {
         return <Error />;
+      }
+
+      if (emptyData) {
+        return null;
       }
 
       return <Component {...data} {...otherProps} />;
