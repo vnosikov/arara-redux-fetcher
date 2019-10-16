@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { equals } from 'ramda';
 
 import araraFetch from './fetcherAction';
-
+import Loading from './indicators/Loading';
+import Error from './indicators/Error';
 
 const withAraraFetcher = (
   Component,
@@ -85,11 +86,11 @@ const withAraraFetcher = (
       const { showIndicator } = this.state;
 
       if (showIndicator) {
-        return <div>Loading</div>;
+        return <Loading />;
       }
 
       if (error) {
-        return <div>Error</div>;
+        return <Error />;
       }
 
       return <Component data={data} {...otherProps} />;

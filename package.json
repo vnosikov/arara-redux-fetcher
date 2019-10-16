@@ -4,6 +4,9 @@
   "main": "build/index.js",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.6",
     "cross-fetch": "^3.0.4",
     "ramda": "^0.26.1"
   },
