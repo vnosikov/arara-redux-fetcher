@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "airbnb",
+
+    "parser": "babel-eslint",
+    "rules": {
+      "arrow-parens": ["error", "as-needed"],
+      "operator-linebreak": ["error", "after"],
+      "react/jsx-filename-extension": "off",
+      "implicit-arrow-linebreak": "off",
+      "prefer-const": "error",
+      "react/forbid-prop-types": "warn",
+      "react/jsx-no-literals": "warn",
+
+      "react/no-did-update-set-state": "warn",
+      "no-use-before-define": ["error", "nofunc"],
+
+      "import/no-extraneous-dependencies": "off"
+    }
+}

@@ -11,24 +11,24 @@ export default (state = {}, action) => {
       };
 
     case 'ARARA_FETCH_SUCCESS':
-        return {
-          ...state,
-          [action.key]: {
-            isReady: true,
-            error: false,
-            data: action.payload,
-          },
-        };
-      
+      return {
+        ...state,
+        [action.key]: {
+          isReady: true,
+          error: false,
+          data: action.payload,
+        },
+      };
+
     case 'ARARA_FETCH_FAILURE':
-        return {
-          ...state,
-          [action.key]: {
-            isReady: true,
-            error: true,
-            data: null,
-          },
-        };
+      return {
+        ...state,
+        [action.key]: {
+          isReady: true,
+          error: true,
+          data: null,
+        },
+      };
 
     default:
       return state;

@@ -12,7 +12,7 @@ const withAraraFetcher = (
   path,
   reduxDataKey,
   fetchParamNames = [],
-  reduxRoot = 'pages'
+  reduxRoot = 'pages',
 ) => {
   class AraraFetcher extends React.Component {
     constructor(props) {
@@ -74,10 +74,10 @@ const withAraraFetcher = (
       const { needsAFetch } = this.state;
       if (needsAFetch) {
         doFetch();
-        this.setState({ 
+        this.setState({
           showIndicator: true,
-          needsAFetch: false
-      });
+          needsAFetch: false,
+        });
       }
     }
 

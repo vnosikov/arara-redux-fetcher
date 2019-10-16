@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { equals, uniq, flatten } from 'ramda';
 
 import araraFetch from './fetcherAction';
+import Loading from './indicators/Loading';
+import Error from './indicators/Error';
 
 
 const withComplexAraraFetcher = (
@@ -12,7 +14,7 @@ const withComplexAraraFetcher = (
   reduxDataKeys,
   forwardPropNames,
   fetchParamNames,
-  reduxRoot = 'pages'
+  reduxRoot = 'pages',
 ) => {
   if (
     pathes.length !== reduxDataKeys.length ||
@@ -85,8 +87,8 @@ const withComplexAraraFetcher = (
       if (needsAFetch) {
         doFetch();
         this.setState({
-          showIndicator: true, 
-          needsAFetch: false
+          showIndicator: true,
+          needsAFetch: false,
         });
       }
     }
@@ -96,11 +98,11 @@ const withComplexAraraFetcher = (
       const { showIndicator } = this.state;
 
       if (showIndicator) {
-        return <div>Loading</div>;
+        return <Loading />;
       }
 
       if (error) {
-        return <div>Error</div>;
+        return <Error />;
       }
 
       return <Component {...data} {...otherProps} />;

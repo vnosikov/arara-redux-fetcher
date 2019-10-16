@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch'
+import fetch from 'cross-fetch';
 
 function fetchRequest(key) {
   return {
@@ -12,7 +12,7 @@ function fetchSuccess(key, payload) {
     type: 'ARARA_FETCH_SUCCESS',
     key,
     payload,
-  }
+  };
 }
 
 function fetchFailure(key) {
@@ -29,14 +29,14 @@ function araraFetch(path, key, params) {
     dispatch(fetchRequest(key));
     const paramKeys = Object.keys(params);
     const paramsQuery = paramKeys.length === 0 ? '' :
-      `?${paramKeys.map(key => `${key}=${params[key]}`).join('&')}`;
+      `?${paramKeys.map(paramKey => `${paramKey}=${params[paramKey]}`).join('&')}`;
 
     const requestPath = `${path}${paramsQuery}`;
     return fetch(requestPath)
       .then(response => response.json())
       .then(json => dispatch(fetchSuccess(key, json)))
-      .catch(() => dispatch(fetchFailure(key)))
-  }
+      .catch(() => dispatch(fetchFailure(key)));
+  };
 }
 
 /* ********************** */
