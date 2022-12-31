@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.3.0",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -36,6 +36,6 @@
     "react-dom": "^16.10.2",
     "react-redux": "5.1.2",
     "redux": "^4.0.4",
-    "webpack": "^2.6.1"
+    "webpack": "^5.75.0"
   }
 }
