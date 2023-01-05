@@ -36,6 +36,6 @@
     "react-dom": "^16.10.2",
     "react-redux": "5.1.2",
     "redux": "^4.0.4",
-    "webpack": "^2.6.1"
+    "webpack": "^5.75.0"
   }
 }
